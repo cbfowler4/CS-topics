@@ -15,8 +15,9 @@ class MinHeap
 
 
   private
-  
+
   def swap(from, to)
+    
   end
 
   def heapifyUp()
