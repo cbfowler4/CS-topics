@@ -16,6 +16,8 @@ class MinHeap
   end
 
   def add(el)
+    @heap.push(el)
+    heapifyUp()
   end
 
 
@@ -26,7 +28,10 @@ class MinHeap
   end
 
   def heapifyUp()
-
+    activeIdx = @heap.length-1;
+    while @heap[activeIdx] > parent[activeIdx]
+      swap(activeIdx, getParentIndex)
+    end
   end
 
   def heapifyDown()
@@ -37,7 +42,7 @@ class MinHeap
       else
         swap(activeIdx, getRightChildIndex)
       end
-    end 
+    end
   end
 
 end
