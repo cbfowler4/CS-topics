@@ -7,7 +7,12 @@ class MinHeap
     @heap = [];
   end
 
-  def removeMin(index)
+  def removeMin()
+    min = @heap[0]
+    @heap[0] = @heap.last
+    @heap.pop
+    heapifyDown()
+    min
   end
 
   def add(el)
@@ -17,13 +22,22 @@ class MinHeap
   private
 
   def swap(from, to)
-    
+    @heap[from], @heap[to] = @heap[to], @heap[from]
   end
 
   def heapifyUp()
+
   end
 
   def heapifyDown()
+    activeIdx = 0;
+    while @heap[activeIdx] > leftChild[activeIdx] || @heap[activeIdx] > leftChild[activeIdx]
+      if @heap[activeIdx] > leftChild[activeIdx]
+        swap(activeIdx, getLeftChildIndex)
+      else
+        swap(activeIdx, getRightChildIndex)
+      end
+    end 
   end
 
 end
